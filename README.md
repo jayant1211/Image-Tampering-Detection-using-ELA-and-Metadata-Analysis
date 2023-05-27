@@ -1,34 +1,32 @@
 # Image Tampering Detection Using ELA and Metadata Analysis
 
-Image Forensics has become a significant area of study in recent years. The authenticity of digital photos is increasingly important in a world where more than 3.2 billion images are uploaded to the internet daily.
+Image forensics has witnessed significant growth in recent years, driven by advancements in computer vision and the surge of digital data. Ensuring the authenticity of images has become a top priority, as sophisticated manipulation techniques continue to emerge. We propose a multi-modal approach to gain insight on image's authenticity.
 
-Image forgery is a very significant problem because it can be used to spread misinformation, sway public opinion, and even perpetrate crimes. We all know at least one example, say of a friend or on a more widespread level, which was fueled by a fake image. How can one tell if an image is digitally manipulated? With advanced image editing software in the hands of the general public, everyone and their cat can create a morphed image.
+### Setup
+Clone the repo<br>
+<code>git clone {}
+cd {}
+</code>
 
-Well, image forgery is a field where a user or organization uses detection algorithms for identifying and preventing the spread of tampered images, and for protection against the negative impacts of image forgery. It is also more cost-effective than hiring additional staff or contracting with external experts to manually inspect images.
+to install all dependencies, create a new virtualenv and install all required packages as:<br>
+<code>pip install -r reuqirements</code>
 
-We propose a multi-modal method, which uses a deep convolution network with error level analysis and metadata of an image linked with historical weather data to give insight into the authenticity of an image.
+Usage:<br>
+run <code>main.py</code><br>
 
-[!alt] <fig1>
+### A Short Summary
+We are using ELA and Metadata Analysis to achieve insgiht into authencity of an image<br>
+<i>1. ELA</i><br>
+when a lossy algorithm like JPEG compresses an image, compression process introduces artifacts or discrepencies in it. these can appear as blocks or regions within an image, exhibiting pixel values that differ from those of the surrounding areas. when an image goes under manipulation, compression artifacts are disrupted for tampered region.<br>
+in ELA, we calculate absolute mean of image at different compression level:
+<image>
+by doing this, we are essentially amplifying the variations caused by compression artifacts.
+<br>
+CASIA2.0 dataset contains set of real and tampered images, we have used this dataset, and it is pre-processed to produce ELA of every image(optimal image quality for compression level for calculating absolute diff was 90%). These preprocessed dataset is then trained on DenseNet121.
 
-## Error Level Analysis - ELA
-  
-The CNN part is easy - take two classes, real and fake, and train. This can work for most cases, but Error Level Analysis is a technique that highlights the edited areas with a weird blue-red tint.
-  
-[!alt] <real>
-
-[!alt] <tampered>
-
-So, before training the model, if every image is preprocessed with Error Level Analysis, it helps the model learn much better to classify among the ELA of real and fake images. The dataset of real and tampered images (CASIA 2.0) has been preprocessed for Error Level Analysis, obtaining a new processed dataset of 10,091 training images and 2,000 for validation. 
-  
-<br>We achieved a maximum accuracy of 95.12% during training.
-<br>The test accuracy attained using the model was 87.24%.
-  
-## Metadata-based Weather Classifier CNN
-
-The weather part is mostly helpful in outdoor images. For obvious reasons, we cannot infer the weather in an indoor scenario. We extract the metadata of the image to get the date, time, and location the image is tagged with (most digital cameras tag longitude and latitude of the location and time of the image captured). Additionally, we have our custom weather model trained for weather classification, which predicts the weather in an image. We can predict the weather in the image using the weather model and cross-check it with the actual weather of that location at that certain point in time the image is tagged with.
-  
-
-We have collected a total of 1,804 training images and 451 validation images, and the categories we narrowed down for the classification are the following:
+<i>2. Weather Validation using Metadata Analysis</i><br>
+image contains lot of metadata with it, say, camera model, date, time, location etc. By 'weather validation' to gain insight into the authenticity of an image, we mean precisely validating the depicted weather. A trained Weather CNN detects a weather depicted in an image(preferrably outdoor), and this reuslt of weather CNN is validated using Historical weather data. for fetching a weather data all you need a good open source weather database, place, date and time. Using metadata analysis, we could extract longitude and latitude, as well as the date and time. then parsing this metadata, we can send a request to weather-API to get original weather on that place on given date and time, and validate our weather-CNN's result.
+<br>The dataset for training weather-CNN was collected from various sources. if you want to access the dataset, you can contact me. We have collected a total of 1,804 training images and 451 validation images, and the categories we narrowed down for the classification are the following:
 <ul>
 <li> Lighting
 <li> rainy
@@ -36,9 +34,21 @@ We have collected a total of 1,804 training images and 451 validation images, an
 <li> sunny
 </ul>
 
-Test Accuracy attained using the model was 73.4%.
-  
-## Results
-  
-So its upto user at end to infer authencity by looking at the result of an image. The insight with ELA model confidence along with Weather Model result is shown as:
-[!alt] <real>
+### Results
+For ELA with DenseNet, using standard practises for training and optimizing the model, the accuracies model achieved were:
+| Metric                | Accuracy  |
+|-----------------------|----------:|
+| Train Accuracy        |   98.34%  |
+| Validation Accuracy   |   93.78%  |
+| Test Accuracy         |   87.24%  |
+
+For Weather CNN:<br>
+| Metric                | Accuracy  |
+|-----------------------|----------:|
+| Train Accuracy        |   91.2%   |
+| Validation Accuracy   |   81.6%   |
+| Test Accuracy         |   73.4%   |
+
+The output of both modules(ELA and Weather Validation using Metadata), is displayed together for better insight into authenticity of image:
+<image>  
+
