@@ -15,6 +15,8 @@ pip install -r reuqirements
 ```
 
 Usage:<br>
+[Download the ELA model](https://drive.google.com/file/d/1dDT27EP_1CXQXaGNGhQ-ptaXctPIULAv/view?usp=sharing)<br>
+Keep the model in <i>ELA_Training</i> Folder<br>
 run <code>main.py</code><br>
 
 ### A Short Summary

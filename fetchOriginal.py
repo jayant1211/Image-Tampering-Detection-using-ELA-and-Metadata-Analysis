@@ -7,6 +7,7 @@ from exif import Image
 from urllib.request import urlopen
 import json
 
+
 '''0:	'Clear sky'
 1, 2, 3	: 'Mainly clear, partly cloudy, and overcast'
 45, 48	Fog and depositing rime fog
@@ -56,11 +57,23 @@ def image_coordinates(image_path):
                       decimal_coords(img.gps_longitude,
                       img.gps_longitude_ref))
         except AttributeError:
-            print ('No Coordinates')
+            try:
+                coords = decimal_coords(img.gps_latitude,"N"),decimal_coords(img.gps_longitude,"N")
+            except AttributeError:
+                print ('No Coordinates. Please run with ELA only.(outdoor=n)')
+                exit()
     else:
-        print ('The Image has no EXIF information')
+        print ('The Image has no EXIF information. Please run with ELA only.(outdoor=n)')
         exit()
-    date_time = img.datetime_original
+    try:
+        date_time = img.datetime_original
+    except AttributeError:
+        try:
+            date_time = img.gps_datestamp
+            date_time += " 12:00:00"
+        except:
+            print("Date not Available. Please run with ELA only.(outdoor=n)")
+            exit()
     latitude = coords[0]
     longitude = coords[1]
     #print({"imageTakenTime":img.datetime_original, "geolocation_lat":coords[0],"geolocation_lng":coords[1]})
