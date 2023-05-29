@@ -79,6 +79,7 @@ The output of both modules(ELA and Weather Validation using Metadata), is displa
 </p>
 <p align="center">Real Images</p>
 
+[Video Result](https://youtu.be/aEpDw_GZb9g)
 
 ### To-Dos
 - [ ] Use scene classification model to remove user dependency for checking whether image is outdoor or not.(In progress)
