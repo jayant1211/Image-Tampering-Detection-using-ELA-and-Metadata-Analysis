@@ -26,12 +26,12 @@ when a lossy algorithm like JPEG compresses an image, the compression process in
 
 in ELA, we calculate the absolute mean of an image at different compression levels:
 <p align="center">
-  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/rsc/ela.jpg" alt="ELA Real Image" width="75%" height="75%">
+  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/rsc/fake.jpg" alt="ELA Real Image" width="75%" height="75%">
 </p>
 <p align="center">ELA</p>
 by doing this, we are essentially amplifying the variations caused by compression artifacts.
 <p align="center">
-  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/rsc/fake.jpg" alt="Fake Image" width="75%" height="75%">
+  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/rsc/ela.jpg" alt="Fake Image" width="75%" height="75%">
 </p>
 <p align="center">ELA for fake image</p>
 The CASIA2.0 dataset contains a set of real and tampered images, we have used this dataset, and it is pre-processed to produce the ELA of every image(optimal image quality for compression level for calculating absolute diff was 90%). This preprocessed dataset is then trained on DenseNet121.
