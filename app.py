@@ -32,11 +32,36 @@ def detect_weather(img_name):
 def org_weather(img_name):
     date_time, lat, long = image_coordinates(img_name)
     location, date, weather = get_weather(date_time, lat, long)
-    print(location, date, weather)
     return "The Image was taken at {} and weather there on {} was {}".format(location, date, weather)
 
 # Streamlit Interface
 st.title("Image Tampering Detection and Weather Classification")
+
+# Introductory Text
+st.markdown("""
+### Welcome to the Image Tampering Detector!
+
+**What This Project Does:**
+This tool helps you determine whether an image has been altered or manipulated. Using advanced technologies, we analyze images to reveal their authenticity.
+
+**How It Works:**
+1. **Error Level Analysis (ELA):**
+   - Images that are edited often show different compression artifacts compared to original ones. We use ELA to highlight these discrepancies, making tampering visible.
+   - **Real vs. Tampered Images:**
+    ![Real](rsc/ela.jpg)
+    ![Tampered Image](rsc/fake.jpg)
+         
+2. **Weather Validation:**
+   - By examining the metadata of the image, we check if the weather depicted matches historical data from the image’s recorded location and time.
+   
+
+**How To Use It:**
+1. **Upload an Image:** Choose an image to analyze.
+2. **Select the Outdoor Option:** Indicate whether the image is taken outdoors.
+3. **View Results:** Get insights into the image’s authenticity with detailed analysis.
+
+Try it out and see if your images hold up under scrutiny!
+""")
 
 # Initialize session state
 if 'step' not in st.session_state:
@@ -71,9 +96,9 @@ if st.session_state.step > 0:
         st.write("3. " + res3)
 
     if st.button("Show Error Level Analysis") and st.session_state.step == 1:
-        st.image(ela_result, caption="ELA ")
+        st.image(ela_result, caption="ELA Analysis")
 
     # Button to reset the session state and allow new image upload
     if st.button("Try New Image"):
         st.session_state.step = 0
-        st.rerun()
+        st.experimental_rerun()
