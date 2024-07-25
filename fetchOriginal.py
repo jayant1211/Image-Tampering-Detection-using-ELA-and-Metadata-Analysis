@@ -6,6 +6,8 @@ import urllib
 from exif import Image
 from urllib.request import urlopen
 import json
+from geopy.geocoders import Nominatim
+
 
 
 '''0:	'Clear sky'
@@ -92,18 +94,23 @@ def get_weather(date_time,lat,long):
     params['Longitude'] = long
     params['Latitude'] = lat
 
+    geoLoc = Nominatim(user_agent="GetLoc")
+ 
+    # passing the coordinates
+    locname = geoLoc.reverse("{},{}".format(lat,long))
     url = base_url + 'latitude={}&longitude={}&start_date={}&end_date={}&hourly=weathercode&timezone=Asia%2FBangkok'.format(params['Latitude'],params['Longitude'],params['Date'],params['Date'])
 
     response = urlopen(url)
     data_json = json.loads(response.read())
 
+    print(locname)
     #print(data_json)
     weather_code = data_json['hourly']['weathercode']
     #print(weather_code)
     hour = int(time[:2])
 
 
-    return weatherDict[weather_code[hour-1]]
+    return locname, date, weatherDict[weather_code[hour-1]]
 
 
 

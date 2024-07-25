@@ -23,9 +23,10 @@ def convert_to_ela_image(path, quality):
     return ela_image
 
 def prepare_image_for_ela(image_path):
-    img = np.array(convert_to_ela_image(image_path, 90).resize((128,128))).flatten() / 255.0
+    ela_img = convert_to_ela_image(image_path, 90)
+    img = np.array(ela_img.resize((128,128))).flatten() / 255.0
     img = img.reshape(128,128,3)
-    return np.expand_dims(img, axis=0)
+    return np.expand_dims(img, axis=0),ela_img
 
 def prerpare_img_for_weather(image_path):
     img = np.array(Image.open(image_path).convert('RGB').resize((128,128)))/255.0
