@@ -1,7 +1,5 @@
 absl-py==2.1.0
 altair==5.3.0
-appnope @ file:///home/conda/feedstock_root/build_artifacts/appnope_1707233003401/work
-asttokens @ file:///home/conda/feedstock_root/build_artifacts/asttokens_1698341106958/work
 astunparse==1.6.3
 attrs==23.2.0
 blinker==1.8.2
@@ -9,13 +7,8 @@ cachetools==5.4.0
 certifi==2024.7.4
 charset-normalizer==3.3.2
 click==8.1.7
-comm @ file:///home/conda/feedstock_root/build_artifacts/comm_1710320294760/work
 contourpy==1.2.1
 cycler==0.12.1
-debugpy @ file:///Users/runner/miniforge3/conda-bld/debugpy_1719378692445/work
-decorator @ file:///home/conda/feedstock_root/build_artifacts/decorator_1641555617451/work
-exceptiongroup @ file:///home/conda/feedstock_root/build_artifacts/exceptiongroup_1720869315914/work
-executing @ file:///home/conda/feedstock_root/build_artifacts/executing_1698579936712/work
 exif==1.6.0
 flatbuffers==24.3.25
 fonttools==4.53.1
@@ -30,16 +23,10 @@ google-pasta==0.2.0
 grpcio==1.65.1
 h5py==3.11.0
 idna==3.7
-importlib_metadata @ file:///home/conda/feedstock_root/build_artifacts/importlib-metadata_1719361860083/work
-ipykernel @ file:///Users/runner/miniforge3/conda-bld/ipykernel_1719845458456/work
-ipython @ file:///home/conda/feedstock_root/build_artifacts/ipython_1719582526268/work
-jedi @ file:///home/conda/feedstock_root/build_artifacts/jedi_1696326070614/work
 Jinja2==3.1.4
 joblib==1.4.2
 jsonschema==4.23.0
 jsonschema-specifications==2023.12.1
-jupyter_client @ file:///home/conda/feedstock_root/build_artifacts/jupyter_client_1716472197302/work
-jupyter_core @ file:///Users/runner/miniforge3/conda-bld/jupyter_core_1710257334907/work
 keras==2.15.0
 kiwisolver==1.4.5
 libclang==18.1.1
@@ -47,36 +34,22 @@ Markdown==3.6
 markdown-it-py==3.0.0
 MarkupSafe==2.1.5
 matplotlib==3.9.1
-matplotlib-inline @ file:///home/conda/feedstock_root/build_artifacts/matplotlib-inline_1713250518406/work
 mdurl==0.1.2
 ml-dtypes==0.2.0
-nest_asyncio @ file:///home/conda/feedstock_root/build_artifacts/nest-asyncio_1705850609492/work
 numpy==1.26.4
 oauthlib==3.2.2
 opencv-python==4.10.0.84
 opt-einsum==3.3.0
-packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1718189413536/work
 pandas==2.2.2
-parso @ file:///home/conda/feedstock_root/build_artifacts/parso_1712320355065/work
-pexpect @ file:///home/conda/feedstock_root/build_artifacts/pexpect_1706113125309/work
-pickleshare @ file:///home/conda/feedstock_root/build_artifacts/pickleshare_1602536217715/work
 pillow==10.4.0
-platformdirs @ file:///home/conda/feedstock_root/build_artifacts/platformdirs_1715777629804/work
 plum-py==0.8.7
-prompt_toolkit @ file:///home/conda/feedstock_root/build_artifacts/prompt-toolkit_1718047967974/work
 protobuf==4.25.3
-psutil @ file:///Users/runner/miniforge3/conda-bld/psutil_1719274589453/work
-ptyprocess @ file:///home/conda/feedstock_root/build_artifacts/ptyprocess_1609419310487/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
-pure-eval @ file:///home/conda/feedstock_root/build_artifacts/pure_eval_1642875951954/work
 pyarrow==17.0.0
 pyasn1==0.6.0
 pyasn1_modules==0.4.0
 pydeck==0.9.1
-Pygments @ file:///home/conda/feedstock_root/build_artifacts/pygments_1714846767233/work
 pyparsing==3.1.2
-python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1709299778482/work
 pytz==2024.1
-pyzmq @ file:///Users/runner/miniforge3/conda-bld/pyzmq_1715024416831/work
 referencing==0.35.1
 requests==2.32.3
 requests-oauthlib==2.0.0
@@ -85,9 +58,7 @@ rpds-py==0.19.1
 rsa==4.9
 scikit-learn==1.5.1
 scipy==1.14.0
-six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
 smmap==5.0.1
-stack-data @ file:///home/conda/feedstock_root/build_artifacts/stack_data_1669632077133/work
 streamlit==1.37.0
 tenacity==8.5.0
 tensorboard==2.15.2
@@ -100,12 +71,7 @@ termcolor==2.4.0
 threadpoolctl==3.5.0
 toml==0.10.2
 toolz==0.12.1
-tornado @ file:///Users/runner/miniforge3/conda-bld/tornado_1717722724710/work
-traitlets @ file:///home/conda/feedstock_root/build_artifacts/traitlets_1713535121073/work
-typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1717802530399/work
 tzdata==2024.1
 urllib3==2.2.2
-wcwidth @ file:///home/conda/feedstock_root/build_artifacts/wcwidth_1704731205417/work
 Werkzeug==3.0.3
 wrapt==1.14.1
-zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1718013267051/work
