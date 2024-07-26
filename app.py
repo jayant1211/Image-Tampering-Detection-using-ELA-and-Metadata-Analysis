@@ -83,7 +83,7 @@ with st.expander("How to use it?"):
 
 with st.expander("Got a Query?"):
     st.markdown("""
-Hi, this is Jayant
+Hi, I'm Jayant
                 
 If you have any questions, feedback, suggestions, or just want to chat, feel free to reach out!
 
@@ -130,11 +130,13 @@ if st.session_state.step > 0:
         # Display ELA result image
         st.image(ela_result, caption="ELA Analysis")
 
+        #TODO ela img goes away, add session step here
+        
         # Save ELA result image to a BytesIO object
         buffer = io.BytesIO()
         ela_result.save(buffer, format="JPEG")  # ela_result should be a PIL Image
         buffer.seek(0)
-
+        
         # Add a download button for the ELA result image
         st.download_button(
             label="Save ELA Result Image",
@@ -146,4 +148,5 @@ if st.session_state.step > 0:
     # Button to reset the session state and allow new image upload
     if st.button("Try New Image"):
         st.session_state.step = 0
+        #st.experimental_rerun() is not working
         st.rerun()
