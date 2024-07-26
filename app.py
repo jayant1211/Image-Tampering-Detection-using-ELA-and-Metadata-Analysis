@@ -29,14 +29,19 @@ def detect_weather(img_name):
     np_img_input = prerpare_img_for_weather(img_name)
     model_Weather = load_model('WeatherCNNTraining/Weather_Model.h5')
     Y_predicted = model_Weather.predict(np_img_input, verbose=0)
-    return "Model shows weather in Image is {}".format(class_weather[np.argmax(Y_predicted[0])])
+    return "Model shows weather in Image is {} ({}% accurate)".format(class_weather[np.argmax(Y_predicted[0])],round(np.max(Y_predicted[0]) * 100))
 
 def org_weather(img_name):
     global outdoor
     date_time, lat, long, outdoor = image_coordinates(img_name)
     if not outdoor:
         return
+    print(lat)
     location, date, weather = get_weather(date_time, lat, long)
+    if lat == 0.0:
+        return "Not able to fetch location. (Show devices may mask location exif info)."
+    if weather == "NA":
+        return "The Image was taken at {} on {}; weather data not available".format(location, date)
     return "The Image was taken at {} and weather there on {} was {}".format(location, date, weather)
 
 # Streamlit Interface
