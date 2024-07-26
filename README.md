@@ -2,8 +2,8 @@
 
 Image forensics has witnessed significant growth in recent years, driven by advancements in computer vision and the surge of digital data. Ensuring the authenticity of images has become a top priority, as sophisticated manipulation techniques continue to emerge. We propose a multi-modal approach to gain insight into the image's authenticity.
 
-### Live Demo
-You can try the live demo of the application here.\
+### Try it on Streamlit
+You can try the live application here.\
 [Live Demo](https://imagetamperingdetection.streamlit.app/)
  
 
@@ -70,19 +70,7 @@ For Weather CNN:<br>
 | Validation Accuracy   |   81.6%   |
 | Test Accuracy         |   73.4%   |
 
-The output of both modules(ELA and Weather Validation using Metadata), is displayed together for better insight into authenticity of image:
-<p align="center">
-  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/res/edited.jpg" alt="ELA Real Image" width="45%" height="45%">
-  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/res/fake1.jpg" alt="ELA Real Image" width="45%" height="45%">
-</p>
-<p align="center">Tampered Images</p>
-
-<p align="center">
-  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/res/org1.jpg" alt="ELA Real Image" width="45%" height="45%">
-  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/res/org2.jpg" alt="ELA Real Image" width="45%" height="45%">
-</p>
-<p align="center">Real Images</p>
-
+### Video
 [Video Result](https://youtu.be/aEpDw_GZb9g)
 
 ### To-Dos
