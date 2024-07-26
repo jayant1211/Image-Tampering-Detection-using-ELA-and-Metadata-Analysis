@@ -41,14 +41,14 @@ st.title("Image Tampering Detection Using ELA and Metadata Analysis")
 st.markdown(""" 
             ### Welcome to the Image Tampering Detector!
             **What This Project Does:**
-            This tool helps you determine whether an image has been altered or manipulated.Try it out and see if your images hold up under scrutiny!
+            This tool helps you determine whether an image has been altered or manipulated. Try it out and see if your images hold up under scrutiny!
             """)
 with st.expander("How it Works?"):
     st.markdown("""
 There are two parallels that are being used to identify an image's authenticity:
 
 1. **Error Level Analysis (ELA):**
-   - Images that are edited often show different compression artifacts compared to original ones. ELA to highlights these discrepancies, making tampering visible.
+   - Images that are edited often show different compression artifacts compared to the original ones. ELA highlights these discrepancies, making tampering visible.
 """)
 
     # Create columns for horizontal layout
