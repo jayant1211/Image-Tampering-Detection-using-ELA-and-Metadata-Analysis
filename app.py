@@ -132,7 +132,7 @@ if st.session_state.step > 0:
     st.write("1. " + res1)
     if flag == "Yes":
         if not outdoor:
-            st.write("Trouble fetching exif. Image do not have location or time metadata.")
+            st.write("Trouble fetching exif. Image do not have location or time metadata. (some devices may mask location exif info).")
         else:
             st.write("2. " + res2)
             st.write("3. " + res3) 
