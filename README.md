@@ -2,7 +2,11 @@
 
 Image forensics has witnessed significant growth in recent years, driven by advancements in computer vision and the surge of digital data. Ensuring the authenticity of images has become a top priority, as sophisticated manipulation techniques continue to emerge. We propose a multi-modal approach to gain insight into the image's authenticity.
 
-### Setup
+### Live Demo
+You can try the live demo of the application here.[Live Demo](https://imagetamperingdetection.streamlit.app/)
+ 
+
+### Local Setup
 Clone the repo<br>
 ```bash
 git clone https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis.git
@@ -15,9 +19,8 @@ pip install -r reuqirements
 ```
 
 Usage:<br>
-[Download the ELA model](https://drive.google.com/file/d/150YgoLBJawO2JeSbEARX-CxPplTri4Q-/view?usp=drive_link)<br>
 Keep the model in <i>ELA_Training</i> Folder<br>
-run <code>main.py</code><br>
+run <code>streamlit run app.py</code> for local inference<br>
 
 ### A Short Summary
 We are using ELA and Metadata Analysis to achieve insight into the authenticity of an image<br>
@@ -26,12 +29,12 @@ when a lossy algorithm like JPEG compresses an image, the compression process in
 
 in ELA, we calculate the absolute mean of an image at different compression levels:
 <p align="center">
-  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/rsc/fake.jpg" alt="ELA Real Image" width="75%" height="75%">
+  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/rsc/ela.jpg" alt="ELA Real Image" width="75%" height="75%">
 </p>
 <p align="center">ELA</p>
 by doing this, we are essentially amplifying the variations caused by compression artifacts.
 <p align="center">
-  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/rsc/ela.jpg" alt="Fake Image" width="75%" height="75%">
+  <img src="https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis/blob/main/rsc/fake.jpg" alt="Fake Image" width="75%" height="75%">
 </p>
 <p align="center">ELA for fake image</p>
 The CASIA2.0 dataset contains a set of real and tampered images, we have used this dataset, and it is pre-processed to produce the ELA of every image(optimal image quality for compression level for calculating absolute diff was 90%). This preprocessed dataset is then trained on DenseNet121.

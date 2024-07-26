@@ -41,8 +41,7 @@ st.title("Image Tampering Detection Using ELA and Metadata Analysis")
 st.markdown(""" 
             ### Welcome to the Image Tampering Detector!
             **What This Project Does:**
-            This tool helps you determine whether an image has been altered or manipulated. 
-            Using advanced technologies, I analyze images to reveal their authenticity.
+            This tool helps you determine whether an image has been altered or manipulated.
             """)
 with st.expander("How it Works?"):
     st.markdown("""
@@ -88,8 +87,8 @@ Hi, this is Jayant
                 
 If you have any questions, feedback, suggestions, or just want to chat, feel free to reach out!
 
-- [LinkedIn Profile](https://www.linkedin.com/in/jayantmeshram/)
-- [GitHub Profile](https://github.com/jayant1211)
+- [Linkedin](https://www.linkedin.com/in/jayantmeshram/)
+- [Github](https://github.com/jayant1211)
 
 you can also email me at jayantmeshram398@gmail.com.
 """)
