@@ -50,6 +50,7 @@ def decimal_coords(coords, ref):
     return decimal_degrees
 
 def image_coordinates(image_path):
+    outdoor = True
     with open(image_path, 'rb') as src:
         img = Image(src)
     if img.has_exif:
@@ -62,11 +63,14 @@ def image_coordinates(image_path):
             try:
                 coords = decimal_coords(img.gps_latitude,"N"),decimal_coords(img.gps_longitude,"N")
             except AttributeError:
-                print ('No Coordinates. Please run with ELA only.(outdoor=n)')
-                exit()
+                outdoor = False
+                print("No Coordinates found.")
+                return None, None, None, outdoor
     else:
-        print ('The Image has no EXIF information. Please run with ELA only.(outdoor=n)')
-        exit()
+        print("The Image has no EXIF information.")
+        outdoor = False
+        return None, None, None, outdoor
+
     try:
         date_time = img.datetime_original
     except AttributeError:
@@ -74,12 +78,13 @@ def image_coordinates(image_path):
             date_time = img.gps_datestamp
             date_time += " 12:00:00"
         except:
-            print("Date not Available. Please run with ELA only.(outdoor=n)")
-            exit()
+            print("The Image has no EXIF information.")
+            outdoor = False
+            return None, None, None, outdoor
     latitude = coords[0]
     longitude = coords[1]
     #print({"imageTakenTime":img.datetime_original, "geolocation_lat":coords[0],"geolocation_lng":coords[1]})
-    return date_time,latitude,longitude
+    return date_time,latitude,longitude,outdoor
 
 #date_time,lat,long = image_coordinates('MetaData/img2.jpg')
 

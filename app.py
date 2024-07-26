@@ -11,6 +11,7 @@ import io
 # Constants
 class_weather = ['Lightning', 'Rainy', 'Snow', 'Sunny']
 class_ELA = ['Real', 'Tampered']
+outdoor = False
 
 # Functions
 def check_img(image_name):
@@ -31,7 +32,10 @@ def detect_weather(img_name):
     return "Model shows weather in Image is {}".format(class_weather[np.argmax(Y_predicted[0])])
 
 def org_weather(img_name):
-    date_time, lat, long = image_coordinates(img_name)
+    global outdoor
+    date_time, lat, long, outdoor = image_coordinates(img_name)
+    if not outdoor:
+        return
     location, date, weather = get_weather(date_time, lat, long)
     return "The Image was taken at {} and weather there on {} was {}".format(location, date, weather)
 
@@ -105,7 +109,7 @@ if uploaded_file is not None:
         f.write(uploaded_file.getbuffer())
 
     st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
-    flag = st.radio("Was the image an Outdoor image? (Select No if image has no metadata)", ('Yes', 'No'))
+    flag = st.radio("Is weather visible in the image? (requires image metadata)", ('Yes', 'No'))
 
     if st.button("Proceed") and st.session_state.step == 0:
         st.session_state.step = 1
@@ -121,9 +125,12 @@ if st.session_state.step > 0:
 
     st.write("### Results:")
     st.write("1. " + res1)
-    if flag == 'Yes':
-        st.write("2. " + res2)
-        st.write("3. " + res3)
+    if flag == "Yes":
+        if not outdoor:
+            st.write("Trouble fetching exif. Image do not have location or time metadata.")
+        else:
+            st.write("2. " + res2)
+            st.write("3. " + res3) 
 
     if st.button("Show Error Level Analysis") and st.session_state.step == 1:
         # Display ELA result image
