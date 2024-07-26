@@ -105,7 +105,7 @@ if uploaded_file is not None:
         f.write(uploaded_file.getbuffer())
 
     st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
-    flag = st.radio("Was the image an Outdoor image?", ('Yes', 'No'))
+    flag = st.radio("Was the image an Outdoor image? (Image must have metadata).", ('Yes', 'No'))
 
     if st.button("Proceed") and st.session_state.step == 0:
         st.session_state.step = 1
