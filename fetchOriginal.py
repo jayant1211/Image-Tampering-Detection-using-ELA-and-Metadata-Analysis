@@ -108,12 +108,11 @@ def get_weather(date_time,lat,long):
     response = urlopen(url)
     data_json = json.loads(response.read())
 
-    print(locname)
-    #print(data_json)
     weather_code = data_json['hourly']['weathercode']
-    #print(weather_code)
+    
     hour = int(time[:2])
-
+    if weather_code[hour-1] is None:
+        return locname, date, "NA"
 
     return locname, date, weatherDict[weather_code[hour-1]]
 
