@@ -39,7 +39,7 @@ def org_weather(img_name):
     print(lat)
     location, date, weather = get_weather(date_time, lat, long)
     if lat == 0.0:
-        return "Not able to fetch location. (Show devices may mask location exif info)."
+        return "Not able to fetch location. (some devices may mask location exif info)."
     if weather == "NA":
         return "The Image was taken at {} on {}; weather data not available".format(location, date)
     return "The Image was taken at {} and weather there on {} was {}".format(location, date, weather)
