@@ -3,10 +3,11 @@
 Image forensics has witnessed significant growth in recent years, driven by advancements in computer vision and the surge of digital data. Ensuring the authenticity of images has become a top priority, as sophisticated manipulation techniques continue to emerge. We propose a multi-modal approach to gain insight into the image's authenticity.
 
 ### Live Demo
-You can try the live demo of the application here.[Live Demo](https://imagetamperingdetection.streamlit.app/)
+You can try the live demo of the application here.\
+[Live Demo](https://imagetamperingdetection.streamlit.app/)
  
 
-### Local Setup
+### Running Locally
 Clone the repo<br>
 ```bash
 git clone https://github.com/jayant1211/Image-Tampering-Detection-using-ELA-and-Metadata-Analysis.git
