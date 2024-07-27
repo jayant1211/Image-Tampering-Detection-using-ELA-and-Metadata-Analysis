@@ -60,12 +60,9 @@ def image_coordinates(image_path):
                       decimal_coords(img.gps_longitude,
                       img.gps_longitude_ref))
         except AttributeError:
-            try:
-                coords = decimal_coords(img.gps_latitude,"N"),decimal_coords(img.gps_longitude,"N")
-            except AttributeError:
-                outdoor = False
-                print("No Coordinates found.")
-                return None, None, None, outdoor
+            outdoor = False
+            print("No Coordinates found.")
+            return None, None, None, outdoor
     else:
         print("The Image has no EXIF information.")
         outdoor = False
