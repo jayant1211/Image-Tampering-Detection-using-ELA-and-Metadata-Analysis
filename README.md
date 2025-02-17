@@ -5,6 +5,23 @@ Image forensics has witnessed significant growth in recent years, driven by adva
 ### Try it on Streamlit
 You can try the live application here.\
 [Live Demo](https://imagetamperingdetection.streamlit.app/)
+#### Step 1
+Choose the image
+<p align="center">
+  <img src="imgs/step1.jpg" alt="Step 1" width="50%" height="50%">
+</p>
+
+#### Step 2
+Select if weather metadata is available
+<p align="center">
+  <img src="imgs/step2.jpg" alt="Step 2" width="50%" height="50%">
+</p>
+
+#### Step 3
+Analyze the results
+<p align="center">
+  <img src="imgs/step3.jpg" alt="Step 3" width="50%" height="50%">
+</p>
  
 
 ### Running Locally
